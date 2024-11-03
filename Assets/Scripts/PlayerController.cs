@@ -9,14 +9,23 @@ public class PlayerController : MonoBehaviour
     private float gravityModifier = 2;
     private bool isOnGround = true;
 
-    //Defines playerRb as a Rigidbody variable
+    //Variables related to particle effects
+    private AudioSource playerAudio;
+    [SerializeField] private ParticleSystem explosionParticle;
+    [SerializeField] private ParticleSystem dirtParticle;
+
+    //Variables related to audio
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip crashSound;
+
+    //Rigidbody
     private Rigidbody playerRb;
+
+    //Animator
+    private Animator playerAnim;
 
     //Checks for game over
     public bool gameOver = false;
-
-    //Defines playerAnim as an Animator variable
-    private Animator playerAnim;
 
 
     void Start()
@@ -25,6 +34,8 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         //Assigns the Rigidbody of the player character to playerRb
         playerRb = GetComponent<Rigidbody>();
+        //Assigns AudioSource of the player character to playerAudio
+        playerAudio = GetComponent<AudioSource>();
         //Multiplies gravity of the Unity physics motor with GravityModifier
         Physics.gravity *= gravityModifier;
     }
@@ -43,6 +54,8 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
+            dirtParticle.Stop();
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
     }
 
@@ -53,14 +66,18 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isOnGround = true;
+            dirtParticle.Play();
         }
 
-        //Changes gameOver to true and plays death animation when player character hits an obstacle
+        //Changes gameOver to true and plays death animation and explosionParticle when player character hits an obstacle
         else if (other.gameObject.tag == "Obstacle")
         {
             gameOver = true;
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
+            dirtParticle.Stop();
+            explosionParticle.Play();
+            playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }
 }
