@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
     //Defines playerRb as a Rigidbody variable
     private Rigidbody playerRb;
+    //Checks for game over
+    public bool gameOver = false;
 
 
     void Start()
@@ -39,6 +41,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        isOnGround = true;
+        if (other.gameObject.tag == "Ground")
+        {
+            isOnGround = true;
+        }
+
+        else if (other.gameObject.tag == "Obstacle")
+        {
+            gameOver = true;
+        }
     }
 }
