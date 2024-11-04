@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Variables related to Jump
-    private float jumpForce = 10;
-    private float gravityModifier = 2;
+    private float jumpForce = 15;
+    private float gravityModifier = 4;
     private bool isOnGround = true;
 
     //Variables related to particle effects

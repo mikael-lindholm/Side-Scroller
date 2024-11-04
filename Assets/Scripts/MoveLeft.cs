@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
+    //Speed at which the scene moves
     private float speed = 15;
-    private PlayerController playerControllerScript;   
+
+    //Variable for Player Controller -script
+    private PlayerController playerControllerScript;  
+
+    //Point beyond which obstacles get destroyed
     private float leftBound = -15;
 
     void Start()
