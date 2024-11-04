@@ -10,16 +10,21 @@ public class GameManager : MonoBehaviour
     //Text fields
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    
     //Buttons
     [SerializeField] private Button tryAgain;
     [SerializeField] private Button quitGame;
+
     //Float variable for how much time has passed and int variable for the score
     private float timePassed = 0;
     private float score = 0;
+
     //Player Controller -script
     private PlayerController playerControllerScript;
+
     //Gets current gravity settings in order to fix a bug at LoadScene
     private Vector3 startGravity = Physics.gravity;
+    
 
     void Start()
     {
