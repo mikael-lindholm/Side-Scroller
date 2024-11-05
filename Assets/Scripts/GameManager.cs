@@ -4,16 +4,23 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//Only necessary when playing in Unity editor
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
     //Text fields
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private TextMeshProUGUI livesText;
     
     //Buttons
     [SerializeField] private Button tryAgain;
     [SerializeField] private Button quitGame;
+
+    //Levels
+    [SerializeField] private string currentLevel;
+    [SerializeField] private string nextLevel;
 
     //Float variable for how much time has passed and int variable for the score
     private float timePassed = 0;
@@ -37,6 +44,8 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager();
         GameOver();
+        LivesManager();
+        ChangeScene();
     }
 
     //Updates score based on the time that's passed from start of the game
@@ -62,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Loads a new scene
-    public void LoadScene(string sceneName)
+    void LoadScene(string sceneName)
     {
         //Resets gravity in order to fix a bug that screws up jump height after loading a scene
         Physics.gravity = startGravity;
@@ -70,9 +79,34 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    //Reloads current scene
+    public void TryAgain()
+    {
+        LoadScene(currentLevel);
+    }
+
     //Quits the game
     public void QuitGame()
     {
-        Application.Quit();
+        //For finalized app
+        //Application.Quit();
+        
+        //For playing in Unity editor
+        EditorApplication.ExitPlaymode();
+    }
+
+    //Updates lives-text to match with lives in PlayerController-script
+    public void LivesManager()
+    {
+        livesText.text = "Lives:" + playerControllerScript.lives;
+    }
+
+    //Changes level after a given score is reached
+    public void ChangeScene()
+    {
+        if (score >= 60)
+        {
+            LoadScene(nextLevel);
+        }
     }
 }

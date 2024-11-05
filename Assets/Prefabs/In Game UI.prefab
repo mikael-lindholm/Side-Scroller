@@ -923,8 +923,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 5734627103205653821}
   gameOverText: {fileID: 1139138297326018715}
+  livesText: {fileID: 1455429376878173456}
   tryAgain: {fileID: 421963515309883374}
   quitGame: {fileID: 7658386744947483948}
+  currentLevel: 
+  nextLevel: Title Screen
 --- !u!1 &9043003601077134293
 GameObject:
   m_ObjectHideFlags: 0

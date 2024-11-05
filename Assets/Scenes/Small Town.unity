@@ -361,6 +361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 9202126642972485019, guid: 7ae3ef45a401dc248864a0b100187985, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 640fa9e54570b4acbbc4acf8f3bf8663, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -420,11 +424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4802184788077521375, guid: 3decb3fc6042510448050a0e7e37ca7a, type: 3}
       propertyPath: m_Color.b
-      value: 0.25830507
+      value: 0.6622641
       objectReference: {fileID: 0}
     - target: {fileID: 4802184788077521375, guid: 3decb3fc6042510448050a0e7e37ca7a, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.9937484
       objectReference: {fileID: 0}
     - target: {fileID: 4802184788077521375, guid: 3decb3fc6042510448050a0e7e37ca7a, type: 3}
       propertyPath: m_Color.r
@@ -487,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6011424729621616980, guid: 5ad287da476d7b14d9d4df63ab8d8f96, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d70999ba737574c808b1d37cbdca0c37, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -511,19 +519,19 @@ PrefabInstance:
     - target: {fileID: 2602006633195894121, guid: 3932007014e075341b47fbd45c168065, type: 3}
       propertyPath: obstaclePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 32460606489206194, guid: 1cf9a3d74b1dc554e82af2dcfe16e9f9, type: 3}
+      objectReference: {fileID: 2986528619879517670, guid: e1aacc2503b5c3249add2e243c29b154, type: 3}
     - target: {fileID: 2602006633195894121, guid: 3932007014e075341b47fbd45c168065, type: 3}
       propertyPath: obstaclePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 2832298245656303253, guid: 0827fa92258ab4741813375a553277e0, type: 3}
+      objectReference: {fileID: 9157441213553756745, guid: 672f3cc9f4466a94287002712b1e7b0e, type: 3}
     - target: {fileID: 2602006633195894121, guid: 3932007014e075341b47fbd45c168065, type: 3}
       propertyPath: obstaclePrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 7657306603123488473, guid: 290da504554685142ba423c7e2eacd6e, type: 3}
+      objectReference: {fileID: 7386454023261647242, guid: f1ad51e56334ffb4a9fa7f78b05c45e8, type: 3}
     - target: {fileID: 2602006633195894121, guid: 3932007014e075341b47fbd45c168065, type: 3}
       propertyPath: obstaclePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 9157441213553756745, guid: 672f3cc9f4466a94287002712b1e7b0e, type: 3}
+      objectReference: {fileID: 2832298245656303253, guid: 0827fa92258ab4741813375a553277e0, type: 3}
     - target: {fileID: 4334549079061346070, guid: 3932007014e075341b47fbd45c168065, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.678177
@@ -581,9 +589,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421963515309883374, guid: 57187b0fd6bc81340bf28db8ccb64a0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 421963515309883374, guid: 57187b0fd6bc81340bf28db8ccb64a0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386325760190464759, guid: 57187b0fd6bc81340bf28db8ccb64a0f, type: 3}
+      propertyPath: nextLevel
+      value: Evening City
+      objectReference: {fileID: 0}
     - target: {fileID: 4386325760190464759, guid: 57187b0fd6bc81340bf28db8ccb64a0f, type: 3}
       propertyPath: currentLevel
-      value: Evening City
+      value: Small Town
       objectReference: {fileID: 0}
     - target: {fileID: 8194600873552052330, guid: 57187b0fd6bc81340bf28db8ccb64a0f, type: 3}
       propertyPath: m_Pivot.x

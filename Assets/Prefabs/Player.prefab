@@ -1760,7 +1760,9 @@ MonoBehaviour:
   dirtParticle: {fileID: 3277706320816004977}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
+  lossOfLifeSound: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
   gameOver: 0
+  lives: 3
 --- !u!82 &4003541815621032945
 AudioSource:
   m_ObjectHideFlags: 0
