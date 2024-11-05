@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     //Variables related to audio
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip lossOfLifeSound;
 
     //Rigidbody
     private Rigidbody playerRb;
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     //Checks for game over
     public bool gameOver = false;
+
+    //Lives
+    public int lives = 3;
 
 
     void Start()
@@ -72,12 +76,22 @@ public class PlayerController : MonoBehaviour
         //Changes gameOver to true and plays death animation and explosionParticle when player character hits an obstacle
         else if (other.gameObject.tag == "Obstacle")
         {
-            gameOver = true;
-            playerAnim.SetBool("Death_b", true);
-            playerAnim.SetInteger("DeathType_int", 1);
-            dirtParticle.Stop();
-            explosionParticle.Play();
-            playerAudio.PlayOneShot(crashSound, 1.0f);
+            lives -= 1;
+            if (lives == 0)
+            {
+                gameOver = true;
+                playerAnim.SetBool("Death_b", true);
+                playerAnim.SetInteger("DeathType_int", 1);
+                dirtParticle.Stop();
+                explosionParticle.Play();
+                playerAudio.PlayOneShot(crashSound, 1.0f);
+            }
+            else
+            {
+                playerAudio.PlayOneShot(lossOfLifeSound, 1.0f);
+                Destroy(other.gameObject);
+            }
+            
         }
     }
 }

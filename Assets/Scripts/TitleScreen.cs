@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+//Only necessary when playing in Unity editor
+using UnityEditor;
 
 public class TitleScreen : MonoBehaviour
 {
-    private string firstSceneName = "Evening City";
+    private string firstSceneName = "Small Town";
 
     //Loads the first scene
     public void LoadScene()
@@ -17,6 +19,10 @@ public class TitleScreen : MonoBehaviour
     //Quits game
     public void QuitGame()
     {
-        Application.Quit();
+        //For finalized app
+        //Application.Quit();
+
+        //For playing in Unity editor
+        EditorApplication.ExitPlaymode();
     }
 }

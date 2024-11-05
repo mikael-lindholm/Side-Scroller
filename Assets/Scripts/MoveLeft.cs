@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveLeft : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MoveLeft : MonoBehaviour
 
     //Point beyond which obstacles get destroyed
     private float leftBound = -15;
+
 
     void Start()
     {
